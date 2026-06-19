@@ -211,6 +211,6 @@ The implementation is intentionally written in C and focuses on Unix process man
 
 ## Author
 
-Christian Gómez
-Junior Software Developer in training at 42 Barcelona
+Christian Gómez<br>
+Junior Software Developer in training at 42 Barcelona<br>
 GitHub: [github.com/chgomez04](https://github.com/chgomez04)
