@@ -50,6 +50,12 @@ static char	*dup_word(const char *start, const char *end)
 	return (word);
 }
 
+static int	add_word(char **res, int i, const char *start, const char *end)
+{
+	res[i] = dup_word(start, end);
+	return (res[i] != NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char		**res;
@@ -69,8 +75,9 @@ char	**ft_split(char const *s, char c)
 		start = s;
 		while (*s && *s != c)
 			s++;
-		if (start < s)
-			res[i++] = dup_word(start, s);
+		if (start < s && !add_word(res, i, start, s))
+			return (ft_free_matrix_n(res, i), NULL);
+		i += (start < s);
 	}
 	res[i] = NULL;
 	return (res);

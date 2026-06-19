@@ -68,3 +68,10 @@ void	ft_free_matrix(char **matrix)
 		free(matrix[i++]);
 	free(matrix);
 }
+
+void	ft_free_matrix_n(char **matrix, int n)
+{
+	while (n > 0)
+		free(matrix[--n]);
+	free(matrix);
+}

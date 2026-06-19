@@ -28,6 +28,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
 void	ft_free_matrix(char **matrix);
+void	ft_free_matrix_n(char **matrix, int n);
 char	**ft_split(char const *s, char c);
 void	ft_error_sys(const char *msg);
 void	ft_error_msg(const char *msg);

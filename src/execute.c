@@ -60,7 +60,12 @@ void	execute(char *cmd, char **envp)
 	char	*path;
 
 	args = ft_split(cmd, ' ');
-	path = get_path(args[0], envp);
+	if (!args || !args[0])
+		ft_error_msg("empty command");
+	if (args[0][0] == '/' || (args[0][0] == '.' && args[0][1] == '/'))
+		path = args[0];
+	else
+		path = get_path(args[0], envp);
 	if (!path)
 	{
 		print_error_cmd(args[0]);
@@ -71,7 +76,8 @@ void	execute(char *cmd, char **envp)
 	{
 		print_error_cmd(args[0]);
 		ft_free_matrix(args);
-		free(path);
+		if (path != args[0])
+			free(path);
 		exit(127);
 	}
 }
